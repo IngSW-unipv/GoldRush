@@ -48,7 +48,7 @@ class Bank {
         ranking.sort(new Comparator<Map.Entry<GoldDigger, Integer>>() {
             @Override
             public int compare(Map.Entry<GoldDigger, Integer> o1, Map.Entry<GoldDigger, Integer> o2) {
-                return o1.getValue() - o2.getValue();
+                return o2.getValue() - o1.getValue();
             }
         });
         return ranking;

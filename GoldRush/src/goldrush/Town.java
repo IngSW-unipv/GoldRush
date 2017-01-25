@@ -10,27 +10,60 @@ package goldrush;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import org.reflections.Reflections;
 
 /**
  *
  * @author Claudio Cusano <claudio.cusano@unipv.it>
  */
 public class Town {
-    List<GoldDigger> diggers_;
+    List<GoldDigger> diggers;
     Bank bank;
-    static final int[] SITE_DISTANCES = {10, 30, 30};
+    int[] siteDistances;
     
-    Town() {
-        diggers_ = new ArrayList<>();
-        diggers_.add(new RandomDigger());
-        diggers_.add(new RotatingDigger()); 
+    /**
+     * Create a new town.
+     * 
+     * @param distances distances (in minutes) between the town and the mining sites
+     * @throws InstantiationException
+     * @throws IllegalAccessException
+     */
+    public Town(int[] distances) throws InstantiationException, IllegalAccessException {
+        siteDistances = distances;
+        diggers = Town.discoverDiggers();
         bank = new Bank();
     }
     
-    public List<GoldDigger> diggers() {
-        return diggers_;
+    static List<GoldDigger> discoverDiggers() throws InstantiationException, IllegalAccessException {
+        Reflections reflections = new Reflections("goldrush");
+        Set<Class<? extends GoldDigger>> subTypes;
+        subTypes = reflections.getSubTypesOf(GoldDigger.class);
+        
+        List<GoldDigger> diggers = new ArrayList<>();
+        for (Class<? extends GoldDigger> cls : subTypes)
+            for (int j = 0; j < 100; j++)
+            diggers.add(cls.newInstance());
+        return diggers;
+    }
+    
+    /**
+     * The list of gold diggers in the town.
+     * 
+     * @return the diggers
+     */
+    public List<GoldDigger> getDiggers() {
+        return diggers;
     }
 
+    /**
+     * Compute the amount of gold obtained by each of the diggers mining a site
+     * at the given distance.
+     * 
+     * @param distance distance between the town and the mining site
+     * @param diggers number of gold diggers at that site
+     * @return grams of gold obtained
+     */
     public static int computeSiteRevenue(int distance, int diggers) {
         // Perform computations in minutes to reduce the rounding error.
         if (diggers < 1)
@@ -42,26 +75,29 @@ public class Town {
         return (num + (den / 2)) / den;
     }
     
+    /**
+     * Simulate a single day for the gold diggers.
+     */
     public void simulateDay() {
-        int N = SITE_DISTANCES.length;
+        // Arrays passed to diggers are cloned to prevent cheating.
+        int N = siteDistances.length;
         int[] counters = new int[N];
-        int[] selection = new int[diggers_.size()];
-        for (int i = 0; i < diggers_.size(); i++) {
-            selection[i] = diggers_.get(i).chooseDiggingSite(SITE_DISTANCES);
+        int[] selection = new int[diggers.size()];
+        for (int i = 0; i < diggers.size(); i++) {
+            selection[i] = diggers.get(i).chooseDiggingSite(siteDistances.clone());
             if (selection[i] >= 0 && selection[i] < N)
                 counters[selection[i]]++;
         }
         
         int[] revenues = new int[N];
         for (int i = 0; i < N; i++)
-            revenues[i] = Town.computeSiteRevenue(SITE_DISTANCES[i], counters[i]);
+            revenues[i] = Town.computeSiteRevenue(siteDistances[i], counters[i]);
         
-        for (int i = 0; i < diggers_.size(); i++) {
+        for (int i = 0; i < diggers.size(); i++) {
             int r = (selection[i] >= 0 && selection[i] < N ? revenues[selection[i]] : 0);
-            bank.storeGold(diggers_.get(i), r);
-            diggers_.get(i).dailyOutcome(r, SITE_DISTANCES, counters);
+            bank.storeGold(diggers.get(i), r);
+            diggers.get(i).dailyOutcome(r, siteDistances.clone(), counters.clone());
         }
-        
     }
     
     /**

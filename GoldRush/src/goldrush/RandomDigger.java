@@ -21,7 +21,6 @@ public class RandomDigger extends GoldDigger {
     Random randomGenerator;
     
     RandomDigger() {
-        super("RandomDigger");
         randomGenerator = new Random();
     }
     

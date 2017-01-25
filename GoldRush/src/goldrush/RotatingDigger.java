@@ -17,7 +17,6 @@ public class RotatingDigger extends GoldDigger {
     int site;
     
     RotatingDigger() {
-        super("RotatingDigger");
         site = 0;  // start from the first site
     }
 
