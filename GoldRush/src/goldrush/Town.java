@@ -42,7 +42,6 @@ public class Town {
         
         List<GoldDigger> diggers = new ArrayList<>();
         for (Class<? extends GoldDigger> cls : subTypes)
-            for (int j = 0; j < 100; j++)
             diggers.add(cls.newInstance());
         return diggers;
     }
