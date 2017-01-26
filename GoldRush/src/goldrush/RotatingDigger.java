@@ -14,18 +14,19 @@ package goldrush;
  * @author Claudio Cusano <claudio.cusano@unipv.it>
  */
 public class RotatingDigger extends GoldDigger {
-    int site;
+    int days;  // Contatore dei giorni
     
+    /**
+     * Constructor.
+     */
     RotatingDigger() {
-        site = 0;  // start from the first site
+        days = 0;
     }
 
     @Override
     public int chooseDiggingSite(int[] distances) {
-        int chosen = site;
-        site++;  // Next time choose the next site 
-        if (site >= distances.length)
-            site = 0;  // When finished, restart from the first one
+        int chosen = days % distances.length;
+        days++;
         return chosen;
     }
 }

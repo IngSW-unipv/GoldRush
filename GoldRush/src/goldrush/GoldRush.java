@@ -25,19 +25,19 @@ public class GoldRush {
      */
     public static void main(String[] args) {
         // Setup
-        Town town;
+        Town town = new Town(SITE_DISTANCES);
+        
+        int days = DEFAULT_DAYS;
+        if (args.length > 0)
+            days = Integer.decode(args[0]);
+        
+        // Simulation
         try {
-            town = new Town(SITE_DISTANCES);
+            town.createDiggers();
         } catch (InstantiationException | IllegalAccessException ex) {
             Logger.getLogger(GoldRush.class.getName()).log(Level.SEVERE, null, ex);
             return;
         }
-        
-        int days = DEFAULT_DAYS;
-        if (args.length > 1)
-            days = Integer.decode(args[1]);
-        
-        // Simulation
         for (int d = 0; d < days; d++)
             town.simulateDay();
        
@@ -45,8 +45,7 @@ public class GoldRush {
         int n = 0;
         for (Map.Entry<GoldDigger, Integer> e : town.richestDiggers()) {
             n++;
-            System.out.print(n);
-            System.out.println("\t" + e.getKey().getName() + "\t" + e.getValue());
+            System.out.println(n + "\t" + e.getKey().getName() + "\t" + e.getValue());
         }
     }
 }

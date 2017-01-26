@@ -29,21 +29,21 @@ public class Town {
      * @throws InstantiationException
      * @throws IllegalAccessException
      */
-    public Town(int[] distances) throws InstantiationException, IllegalAccessException {
+    public Town(int[] distances) {
         siteDistances = distances;
-        diggers = Town.discoverDiggers();
+        diggers = new ArrayList<>();
         bank = new Bank();
     }
     
-    static List<GoldDigger> discoverDiggers() throws InstantiationException, IllegalAccessException {
+    void createDiggers() throws InstantiationException, IllegalAccessException {
         Reflections reflections = new Reflections("goldrush");
         Set<Class<? extends GoldDigger>> subTypes;
         subTypes = reflections.getSubTypesOf(GoldDigger.class);
         
-        List<GoldDigger> diggers = new ArrayList<>();
+        List<GoldDigger> digs = new ArrayList<>();
         for (Class<? extends GoldDigger> cls : subTypes)
-            diggers.add(cls.newInstance());
-        return diggers;
+            digs.add(cls.newInstance());
+        diggers = digs;
     }
     
     /**
