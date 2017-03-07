@@ -7,16 +7,61 @@
  */
 package goldrush;
 
+import java.util.Random;
+
 /**
  *
- * @author emanuela
+ * @author Carolina Bianchi mat 427917
  */
 public class BianchiCarolina extends GoldDigger {
 
-    @Override
-    public int chooseDiggingSite(int[] distances) {
-        return 1;
+    private int day;
+    private int index1fa;
+    private int index2fa;
+    private int[] revenues;
+    private double[] sumRevenues;
+    private static final int N_SITES = GoldRush.SITE_DISTANCES.length;
+    private static final int N_DAYS = GoldRush.DEFAULT_DAYS;
+
+    public BianchiCarolina() {
+        day = 0;
+        this.index1fa = 0;
+        this.index2fa = 0;
+        this.revenues = new int[N_SITES];
+        this.sumRevenues = new double[N_SITES];
     }
 
+    @Override
+    public int chooseDiggingSite(int[] distances) {
+        return bestPastDay();
+    }
+
+    private int bestPastDay() {
+
+        double a = 0.1;
+        for (int i = 0; i < N_SITES; i++) {
+            sumRevenues[i]= (1-a)*sumRevenues[i]+a*revenues[i];
+            if (sumRevenues[i] > sumRevenues[index2fa]) {
+                index2fa = index1fa;
+                index1fa = i;
+            }
+        }
+
+        if (day == 0 || day == 1) {
+            return 3;
+        }
+        return index2fa;
+
+    }
+
+    @Override
+    public void dailyOutcome(int revenue, int[] distances, int[] diggers) {
+
+        for (int i = 0; i < distances.length; i++) {
+            this.revenues[i] = Town.computeSiteRevenue(distances[i], diggers[i] + 1);
+        }
+
+        day++;
+    }
 
 }
