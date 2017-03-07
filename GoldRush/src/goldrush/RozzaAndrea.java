@@ -22,10 +22,7 @@ public class RozzaAndrea extends GoldDigger {
     @Override
     public int chooseDiggingSite(int[] distances) {
         int posizione = 0;
-        if (days == 0)
-            posizione = 3;
-        else
-            posizione = 3;//(2*days) % distances.length;
+        posizione = (days % 2) == 0 ? 1 : 3;
         days++;
         return posizione;
     }
