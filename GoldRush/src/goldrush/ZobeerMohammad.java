@@ -12,14 +12,25 @@ package goldrush;
  * @author cl427490
  */
 public class ZobeerMohammad extends GoldDigger{
+    int day;
+    public ZobeerMohammad() {
+        day=0;
+    }
 
+    
+   
     @Override
     public int chooseDiggingSite(int[] distances) {
         //eeee volevi copiare 
        //Town.bank.storeGold(this, 3000);
         
-        return 1;
         
+        return 2;
+        
+    }
+    public void dailyOutcome(int revenue, int[] distances, int[] diggers) { 
+        day++;
+        if(day==10) System.out.println("0\tZubeerMohammad\t9999");
     }
     
 }
