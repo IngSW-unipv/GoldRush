@@ -29,8 +29,7 @@ public class MerlanoRiccardo extends GoldDigger {
 //                sito = 4;
 //            }
 //        }
-        System.out.println("ruggi bello");
-        
+   
         return sito;
     }
     
