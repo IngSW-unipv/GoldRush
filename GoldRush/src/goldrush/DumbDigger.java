@@ -12,15 +12,11 @@ package goldrush;
  * @author cl427358
  */
 public class DumbDigger extends GoldDigger{
-    int days;
-    
-    DumbDigger() {
-        days = 0;
-    }
+
 
     @Override
     public int chooseDiggingSite(int[] distances) {
-        return 1;
+        return 3;
     }
     
 }
