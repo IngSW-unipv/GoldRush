@@ -9,7 +9,8 @@ package goldrush;
 
 /**
  *
- * @author cl421033
+ * @author cl421033 Andrea Rozza
+ * @author cl411381 Thomas Brandoli
  */
 public class RozzaAndrea extends GoldDigger {
     
