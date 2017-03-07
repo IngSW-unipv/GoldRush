@@ -9,18 +9,27 @@ package goldrush;
 
 /**
  *
- * @author Merlano Riccardo 427720
+ * @author Antonio Minolfi
+ * mat 426778
+ *  
  */
-public class MerlanoRiccardo extends GoldDigger {
-    
-    int sito=0, i=0;
+public class MinolfiAntonio extends GoldDigger{
 
+    int sito;
+    
+    MinolfiAntonio() {
+        sito = 1;
+    }
+    
     @Override
     public int chooseDiggingSite(int[] distances) {
+        int chosen = sito;
+        sito++;
+        if(sito>4){
+            sito = 1;
+        }
         
-        
-        
-        return 4;
+        return chosen;
     }
     
 }
