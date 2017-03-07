@@ -29,10 +29,10 @@ public class RoglediRiccardi extends GoldDigger{
     }
     @Override
     public void dailyOutcome(int revenue, int[] distances, int[] diggers) {
-        System.out.println("\ngrammi: "+ revenue);
+        //System.out.println("\ngrammi: "+ revenue);
         int i;
-        for(i=0;i<distances.length;i++){System.out.println("distanze: " + distances[i]);}
-        for(i=0;i<diggers.length;i++){System.out.println("diggers: " + diggers[i]);}
+        //for(i=0;i<distances.length;i++){System.out.println("distanze: " + distances[i]);}
+        //for(i=0;i<diggers.length;i++){System.out.println("diggers: " + diggers[i]);}
     }
     
     
