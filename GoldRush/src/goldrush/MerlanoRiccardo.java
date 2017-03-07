@@ -13,13 +13,36 @@ package goldrush;
  */
 public class MerlanoRiccardo extends GoldDigger {
     
-    int sito=0, i=0;
+    int sito=5, i=0, flag=0;
 
     @Override
     public int chooseDiggingSite(int[] distances) {
         
-        return 4;
+//        for(i=0; i<distances.length; i++){
+//            
+//            if(flag<=2)
+//            {
+//                flag++;
+//            }
+//            else
+//            {
+//                sito = 4;
+//            }
+//        }
+        
+        return sito;
     }
+    
+//    @Override
+//        public void dailyOutcome(int revenue, int[] distances, int[] diggers) {
+//            
+//        for(i=0; i<diggers.length; i++){
+//            System.out.print(diggers[i] + " ");
+//        }
+//        
+//        System.out.print("\n");
+//        
+//    }
     
     
 }
