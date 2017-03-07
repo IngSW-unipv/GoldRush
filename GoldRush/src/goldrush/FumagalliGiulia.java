@@ -14,28 +14,29 @@ import java.util.Random;
  * @author cl426792
  */
 public class FumagalliGiulia extends GoldDigger {
-    int place, days, diggers;
-    Random randomGenerator;
+    int place, days, diggers[];
+   // int diggers;
+  //  Random randomGenerator;
     
     FumagalliGiulia(){
-        randomGenerator = new Random();
+    //    randomGenerator = new Random();
         days = 0;
     }
     
     @Override
     public void dailyOutcome(int revenue, int[] distances, int[] diggers) { 
-        this.diggers = diggers[place];
-        System.out.println(place + " - " + revenue + " - " + diggers[place] + " - " + this.diggers);
+        this.diggers = diggers;
     }
     
     @Override
     public int chooseDiggingSite(int[] distances){
-        int r;
         if(days > 0){
-            if(diggers > 1){
-                r = randomGenerator.nextInt(2);
-                if(place != r){
-                    place = r;
+    //        if(diggers > 1){
+    //            place = randomGenerator.nextInt(3);
+    //        }
+            for(int i = distances.length - 1; i >= 0 ; i --){
+                if(diggers[i]<2){
+                    place = i;
                 }
             }
         } else {
