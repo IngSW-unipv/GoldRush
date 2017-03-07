@@ -11,7 +11,7 @@ package goldrush;
  *  @author Reina Michele cl418656
  * @author Bonissone Davidecl427113
  */
-public class MicheleBoni extends GoldDigger{ //
+public class BoniMichele extends GoldDigger{ //
 int t=0;
    int j=99;
     @Override

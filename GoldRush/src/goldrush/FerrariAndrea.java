@@ -9,9 +9,10 @@ package goldrush;
 
 /**
  *
- * @author cl427358
+ * @author cl418849 Federico Draghi
+ * @author cl427358 Andrea Ferrari
  */
-public class DumbDigger extends GoldDigger{
+public class FerrariAndrea extends GoldDigger{
     int revenue;
     int[] distances; 
     int[] diggers;
