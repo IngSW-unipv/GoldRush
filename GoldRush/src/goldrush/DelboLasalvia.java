@@ -12,10 +12,19 @@ package goldrush;
  * @author Delbo
  */
 public class DelboLasalvia extends GoldDigger {
-
+    private int guadagnoGiornoPrima;
     @Override
     public int chooseDiggingSite(int[] distances) {
+//        double guadagno, media;
+//        for(int i = 0; i<distances.length;i++){
+//            
+//        }
         return 5;
+    }
+
+    @Override
+    public void dailyOutcome(int revenue, int[] distances, int[] diggers) {
+        
     }
     
 }
