@@ -55,9 +55,9 @@ public class ChiapponiElisa extends GoldDigger {
             }
         }
         
-        //bestSites[day]=digSite;
+        
         setChoosenSite(digSite);
-        //day++;
+        
     }
     
     
