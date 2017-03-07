@@ -9,7 +9,7 @@ package goldrush;
 
 /**
  *
- * @author 
+ * @author Bonati Lorenzo 430490
  */
 public class ALolloSan extends GoldDigger{
 
