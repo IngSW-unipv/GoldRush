@@ -36,29 +36,36 @@ public class LaSalviaMarco extends GoldDigger {
        if(this.checkMedia())
            return this.scelta;
        else{
-           this.sceltaPrecedente = this.scelta;
-           this.scelta =  this.trovaSitoConMenoGente();
+           if(this.guadagnoDatoSito(this.trovaSitoConMenoGente())>=10){
+            this.sceltaPrecedente = this.scelta;
+            this.scelta =  this.trovaSitoConMenoGente();
+           }else{
+               if(this.trovaSitoConMenoGente()>4){
+                   if(this.sommaMieiGuadagni<=this.calcolaPartecipanti()*2.5){
+                       this.sceltaPrecedente = this.scelta;
+                       this.scelta = 2;
+                   }else{
+                       this.sceltaPrecedente = this.scelta;
+                       this.scelta = 4;
+                   }
+               }else{
+                   this.sceltaPrecedente = this.scelta;
+                   this.scelta = this.trovaSitoConMenoGente();
+               }
+            if(this.sommaMieiGuadagni<=this.calcolaPartecipanti()*4 && this.day>7){
+            this.sceltaPrecedente = this.scelta;
+            this.scelta =  2;
+            }
+           }
        }
-//           if(this.trovaSitoConMenoGente()  > 4){
-//                if(this.sommaMieiGuadagni<=this.calcolaPartecipanti()*4.5){
-//                    this.sceltaPrecedente = this.scelta;
-//                    this.scelta =  2;
-//                }else{
-//                    this.sceltaPrecedente = this.scelta;
-//                    this.scelta = 4;
-//                }
-//           }else
-//               this.sceltaPrecedente = this.scelta;
-//               this.scelta = this.trovaSitoConMenoGente();
-//       }
-//       if(this.sommaMieiGuadagni<=this.calcolaPartecipanti()*4 && this.day>7){
-//           this.sceltaPrecedente = this.scelta;
-//           this.scelta =  2;
-//       }
+
        this.day++;
        return this.scelta;
     }
-    
+    private double guadagnoDatoSito(int sito){
+        double guadagno = (60 -(this.distanze[sito]/6) ) / this.diggersDayBefore[sito];
+        return guadagno;
+    }
     @Override
     public void dailyOutcome(int revenue, int[] distances, int[] diggers) {
         this.guadagniGiornoPrima = new int[distances.length];
@@ -75,8 +82,7 @@ public class LaSalviaMarco extends GoldDigger {
                migliore = this.diggersDayBefore[i];
        }
        return migliore;
-    }
-    
+    } 
     private int calcolaMediaGuadagni(){
         int media = 0;
         for(int i=0; i<distanze.length;i++){
