@@ -22,7 +22,6 @@ public class ColosiSimone extends GoldDigger{
     protected final int[] tempi={30,140,200,240,280,310};
     
     public ColosiSimone(){
-        revenue=3;
         distances=new int[6];
         diggers=new int[6];
     }
@@ -67,19 +66,18 @@ public class ColosiSimone extends GoldDigger{
        double[] error=new double[6];       
        for(int i=0;i<g.length;i++){
            error[i]=abs(g[i]-media);
-           System.out.println(i+"  "+(int)error[i]);
        }
        
        int tmp=0;
-       for(int i=0;i<error.length;i++)
+       for(int i=0;i<error.length;i++){
            if(i==0)
                tmp=(int)error[i];
            else    
                 if((int)error[i]<tmp)
-                    tmp=(int)error[i];
+                    tmp=(int)error[i];}
        
        for(int i=5;i<=0;i--)
-           if((int)error[i]<=tmp)
+           if((int)error[i]==tmp)
                posizione=i;
     }
 }
