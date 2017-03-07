@@ -12,30 +12,34 @@ import java.util.Random;
 /**
  *
  * @author cl427012
+ * 
+ * programmatore 1: Filippo Mandrini - matricola: 427012
+ * programmatore 2: Samuele Colmi - matricola: 427886
  */
 public class MandriniFilippo extends GoldDigger {
     
-    //programmatore 1: Filippo Mandrini - matricola: 427012 - programmatori: Filippo Mandrini e Samuele Colmi
+    //Random randomGenerator;
     
-    Random randomGenerator;
-    //private int i;
+    private int a;
     
     public MandriniFilippo() {
-        this.randomGenerator = new Random();
+        //this.randomGenerator = new Random();
     }
     
-
     @Override
     public int chooseDiggingSite(int[] distances) {
-        //return randomGenerator.nextInt(distances.length);
-        int a = 0;
-        if (a < 3) {
-            a++;
-        }else{
-            a = 0;
-            
-        }
-        return a;
         
+        return a;
+    }
+
+    @Override
+    public void dailyOutcome(int revenue, int[] distances, int[] diggers) {
+        int m = 0;
+        for(int i = 0; i < 3; i++) {
+            if(diggers[i + 1] < diggers[i]) {
+                m = i + 1;
+            }
+        }
+        this.a = m;
     }  
 }
