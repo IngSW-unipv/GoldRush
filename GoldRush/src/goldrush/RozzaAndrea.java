@@ -25,9 +25,8 @@ public class RozzaAndrea extends GoldDigger {
         if (days == 0)
             posizione = 3;
         else
-            posizione = (2 * days) % distances.length;
+            posizione = 3;//(2*days) % distances.length;
         days++;
         return posizione;
     }
-    
 }
