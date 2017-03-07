@@ -20,8 +20,9 @@ public class LonghiManuele extends GoldDigger{
     @Override
     public int chooseDiggingSite(int[] dist) {
         
-        if(gains != null) return getMaxIndex(gains);
-        else return 0;
+        return getMinIndex(dist);
+//        if(gains != null) return getMaxIndex(gains);
+//        else return 0;
     }
     
     @Override
@@ -46,6 +47,19 @@ public class LonghiManuele extends GoldDigger{
         for(int i = 0; i < arr.length; i++) if(arr[i] > max) {
             
             max = arr[i];
+            index = i;
+        }
+        
+        return index;
+    }
+    
+    private int getMinIndex(int[] arr) {
+        
+        int min = arr[0], index = 0;
+        
+        for(int i = 0; i < arr.length; i++) if(arr[i] < min) {
+            
+            min = arr[i];
             index = i;
         }
         
