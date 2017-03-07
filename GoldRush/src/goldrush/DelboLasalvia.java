@@ -13,18 +13,26 @@ package goldrush;
  */
 public class DelboLasalvia extends GoldDigger {
     private int guadagnoGiornoPrima;
+    private int scelta;
+    private int[] diggersGiornoPrima;
+    private int[] guadagniSiti;
     @Override
     public int chooseDiggingSite(int[] distances) {
-//        double guadagno, media;
+//        double guadagno = 0, media;
 //        for(int i = 0; i<distances.length;i++){
-//            
+//            guadagno += (60-distances[i]/6)/this.diggersGiornoPrima[i];
+//        }
+//        media = guadagno/distances.length;
+//        if(this.guadagnoGiornoPrima>media){
+//            return 
 //        }
         return 5;
     }
 
     @Override
     public void dailyOutcome(int revenue, int[] distances, int[] diggers) {
-        
+//        this.diggersGiornoPrima = diggers;
+//        this.guadagnoGiornoPrima = revenue;
     }
     
 }
