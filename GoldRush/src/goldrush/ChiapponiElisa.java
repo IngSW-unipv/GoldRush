@@ -11,7 +11,7 @@ import static goldrush.GoldRush.DEFAULT_DAYS;
 
 /**
  *
- * @author Elisa Chiapponi(426982),
+ * @author Elisa Chiapponi(426982)
  */
 public class ChiapponiElisa extends GoldDigger {
 
@@ -45,14 +45,14 @@ public class ChiapponiElisa extends GoldDigger {
             if (guadTmp > guadagno) {
                 guadagno = guadTmp;
                 if (digSite == 0) {
-                    digSite = 1;
+                    digSite = 0;
                 } else if ((int) Math.round(Math.random()) == 0) {
 
                     digSite = i + 1;
                 } else {
                     digSite = i - 1;
-                }
 
+                }
             }
         }
 
