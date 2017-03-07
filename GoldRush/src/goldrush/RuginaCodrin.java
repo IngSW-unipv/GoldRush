@@ -9,7 +9,7 @@ package goldrush;
 
 /**
  *
- * @author cl418205
+ * @author cl418205 Rugina Codrin & Talamazzini Andrea
  */
 public class RuginaCodrin extends GoldDigger{
     protected int choice;       //in distanza
