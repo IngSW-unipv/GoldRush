@@ -16,7 +16,7 @@ public class CasadeiAlberto extends GoldDigger{ //casadei alberto, margherita ri
     
     @Override
     public int chooseDiggingSite(int[] distances) {
-        return this.scelta;
+        return 2;
 
     }
     
