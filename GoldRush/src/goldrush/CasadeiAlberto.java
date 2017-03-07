@@ -13,6 +13,7 @@ package goldrush;
  */
 public class CasadeiAlberto extends GoldDigger{ //casadei alberto, margherita ricotti 428115, 
     private int scelta=1;
+    int day = 0;
     
     @Override
     public int chooseDiggingSite(int[] distances) {
@@ -23,33 +24,44 @@ public class CasadeiAlberto extends GoldDigger{ //casadei alberto, margherita ri
     
     @Override 
     public void dailyOutcome(int revenue, int[] distances, int[] diggers) { 
+        int max = 0;
+        int guadagni2[] = new int[6];
+        int guadagni1[] = new int[6];
        
-        int max=0;
-        int m=0;
-        int totale=0;
-        int guadagni[] = new int[6];
-        for(int i =0; i<distances.length; i++){
-          if(diggers[i]!=0) {
-          
-            guadagni[i] = 5*((12-(2*distances[i])/60)/2); 
-            totale += guadagni[i];
-            m++;
-          }
+        
+        
+        
+        if(day==0){
+            this.scelta=2;
         }
-        int media = totale/m;
-
-        for(int i =0; i<distances.length; i++){
-            if(guadagni[i]>max){
-                max=guadagni[i];
+        
+        if(day==1){
+            
+            for(int i=0; i<distances.length; i++){
+                if(diggers[i]!=0){
+                    guadagni1[i] = 5*((12-(distances[i]*2/60))/diggers[i]);
+                }else{
+                    guadagni1[i] = 5*(12-(distances[i]*2/60));
+                }
             }
+            for(int i=0; i<distances.length; i++){
+                if(guadagni1[i]>max){
+                    max=i;
+                }
+            }
+            this.scelta = max;
         }
-        if((revenue<media)){  //&&(revenue!=max)
-            int j=0;
-            while(guadagni[j]!=max){
-                j++;
+        
+        if(day>1){
+            guadagni2 = guadagni1;
+            for(int i=0; i<distances.length; i++){
+                if(diggers[i]!=0){
+                    guadagni1[i] = 5*((12-(distances[i]*2/60))/diggers[i]);
+                }else{
+                    guadagni1[i] = 5*(12-(distances[i]*2/60));
+                }
             }
-          
-                this.scelta=j;
+            
             
         }
     }
