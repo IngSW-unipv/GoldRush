@@ -13,30 +13,58 @@ package goldrush;
  */
 public class MaestriFrancesco extends GoldDigger{
     
+    private int dist[] = new int[6];
+    
+    private int dig[] = new int[6];
+    
+    private int rev;
+    
+    private int day = 0;
+    
+    public MaestriFrancesco(){
+        
+        
+        
+    }
+    
     @Override
     public int chooseDiggingSite(int[] distances){
         
-        int buffer = distances[0],index = 0;
-        
-        for(int i = 0; i < distances.length; i++){
+       int bufferRev = rev,index = 0;
+       
+       if(day != 0){
+       
+        for(int i=0; i<6;i++){
             
-            if (buffer > distances[i]){
+            int tot = 5*(12-(2*dist[i]/60))/dig[i];
+            
+            if(bufferRev < tot){
+                
+                bufferRev = tot;
                 
                 index = i;
-                
-                buffer = distances[i];
                 
             }
             
         }
         
-        return index;
+       }
+       
+       day++;
+       
+       return index;
         
     }
     
     @Override
     public void dailyOutcome(int revenue, int[] distances, int[] diggers) { 
-        /* Do nothing by default. */
+
+        rev = revenue;
+        
+        dist = distances;
+        
+        dig = diggers;
+        
     }
     
 }
