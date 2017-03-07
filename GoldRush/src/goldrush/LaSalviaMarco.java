@@ -43,10 +43,10 @@ public class LaSalviaMarco extends GoldDigger {
                if(this.trovaSitoConMenoGente()>4){
                    if(this.sommaMieiGuadagni<=this.calcolaPartecipanti()*2.5){
                        this.sceltaPrecedente = this.scelta;
-                       this.scelta = 2;
+                       this.scelta = 3;
                    }else{
                        this.sceltaPrecedente = this.scelta;
-                       this.scelta = 4;
+                       this.scelta = 1;
                    }
                }else{
                    this.sceltaPrecedente = this.scelta;
@@ -54,7 +54,7 @@ public class LaSalviaMarco extends GoldDigger {
                }
             if(this.sommaMieiGuadagni<=this.calcolaPartecipanti()*4 && this.day>7){
             this.sceltaPrecedente = this.scelta;
-            this.scelta =  2;
+            this.scelta =  4;
             }
            }
        }
