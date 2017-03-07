@@ -19,6 +19,7 @@ public class DelboLasalvia extends GoldDigger {
     @Override
     public int chooseDiggingSite(int[] distances) {
 //        double guadagno = 0, media;
+
 //        for(int i = 0; i<distances.length;i++){
 //            this.guadagniSiti[i] = (60-distances[i]/6)/this.diggersGiornoPrima[i];
 //            guadagno += this.guadagniSiti[i];
