@@ -34,7 +34,7 @@ public class MyDigger extends GoldDigger{
         double rapporto = 0;
         
         for (int i = 0; i < diggers.length; i++) {
-            rapporto = diggers[i]/distances[i];
+            rapporto = diggers[i]/distances[i]*revenue;
             if(rapporto > maxRapporto){
                 maxRapporto = rapporto;
                 index = i;
