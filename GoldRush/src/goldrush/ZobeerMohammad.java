@@ -15,8 +15,9 @@ public class ZobeerMohammad extends GoldDigger{
 
     @Override
     public int chooseDiggingSite(int[] distances) {
+        //eeee volevi copiare 
         return 2;
-        //è vuoto 
+        
     }
     
 }
