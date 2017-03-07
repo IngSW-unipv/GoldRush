@@ -46,8 +46,9 @@ public class GabrieleMazzolaDigger extends GoldDigger {
 
     private int dontKnowMethod() {
         int[] prova = null;
-        return( (prova == null)? 0:1 );
+        return( (prova == null)? 2:1 );
     }
+    
     
     public static int RandomMethod(){
         return ((1 == 2)? 5 : 1);
