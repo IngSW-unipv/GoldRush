@@ -13,14 +13,15 @@ package goldrush;
  */
 public class MerlanoRiccardo extends GoldDigger {
     
-    int sito=5, i=0, flag=0;
+    int sito=5;
 
     @Override
     public int chooseDiggingSite(int[] distances) {
-      
-            
-   
+        
+        
+        
         return sito;
+        
     }
     
 //    @Override

@@ -12,34 +12,11 @@ package goldrush;
  * @author Bonissone Davidecl427113
  */
 public class MicheleBoni extends GoldDigger{ //
-int t=0;
-   int j=99;
+
     @Override
     public int chooseDiggingSite(int[] distances) {
-     
-        for (int i=0; i<distances.length; i++){
-          if (t==0){
-            
-            if (distances[i]==30)
-               j=i;
-            t++;
-            
-        }else
-            if (t<2){
-            
-            if (distances[i]==140)
-               j=i;
-            t++;
-            
-        }else {
-             if (distances[i]==200)
-               j=i;
-            t=0;
-         }
-          
-        }
-       
-    return j;
+      
+    return 2;
     }
     
 }

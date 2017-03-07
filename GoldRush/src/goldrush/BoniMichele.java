@@ -20,26 +20,24 @@ int t=0;
         for (int i=0; i<distances.length; i++){
           if (t==0){
             
-            if (distances[i]==30)
+            if (distances[i]==30) {
                j=i;
-            t++;
-            
+               t++;
+            }
         }else
-            if (t<2){
+           {
             
-            if (distances[i]==140)
+            if (distances[i]== 200) {
                j=i;
-            t++;
-            
-        }else {
-             if (distances[i]==200)
-               j=i;
-            t=0;
+               
+              
+            }
          }
           
         }
        
     return j;
-    }
+          
+        }
     
 }
