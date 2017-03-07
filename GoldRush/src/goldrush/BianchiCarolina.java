@@ -35,13 +35,13 @@ public class BianchiCarolina extends GoldDigger {
     private int bestPastDay(int[] distances) {
         
         if (day == 1) {
-            return 1;
+            return 2;
         }
         
         int indexBestPastSite = 0;
         for (int i = 0; i < N_SITES; i++) {
             
-            sumRevenues[i]+= revenues[i];
+            sumRevenues[i]+= Math.pow(revenues[i], 0.8);
             if (sumRevenues[i] > sumRevenues[indexBestPastSite]) {
                 //System.out.println("sumOutcome[i] "+i+" "+ sumRevenues[i]);
                 //System.out.println("precedente" +sumRevenues[indexBestPastSite]);
