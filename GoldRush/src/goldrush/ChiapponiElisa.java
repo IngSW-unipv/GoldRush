@@ -16,12 +16,11 @@ import static goldrush.GoldRush.DEFAULT_DAYS;
 public class ChiapponiElisa extends GoldDigger {
 
     private int choosenSite;
-    private int[] bestSites;
-    private static int day = 0;
+    
 
     public ChiapponiElisa() {
         this.choosenSite = 0;
-        this.bestSites = new int[DEFAULT_DAYS];
+        
     }
 
     @Override
