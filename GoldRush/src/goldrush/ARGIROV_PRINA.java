@@ -14,7 +14,7 @@ import java.util.Random;
 public class ARGIROV_PRINA extends GoldDigger {
     private int gruppo=2;
     private ArrayList<Integer> guadagnoxsito = new ArrayList<>();
-    private int max=0, maxi=0;
+    private int max=9999, maxi=0;
 
     @Override
     public int chooseDiggingSite(int[] distances) {
@@ -31,7 +31,6 @@ public class ARGIROV_PRINA extends GoldDigger {
             }
                 a=(int)5*((12-2*distances[i]/60)/diggers[i]);
                 guadagnoxsito.add(a);
-            
         }
         
         for(int i=0; i<distances.length ; i++)
