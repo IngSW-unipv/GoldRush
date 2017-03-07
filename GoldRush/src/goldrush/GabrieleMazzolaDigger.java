@@ -13,20 +13,21 @@ package goldrush;
  */
 public class GabrieleMazzolaDigger extends GoldDigger {
 
-    int potato = 1;
+    int potato = 9999;
+    
+    
     
     @Override
     public int chooseDiggingSite(int[] distances) {
         //nemmeno qui puoi copiare, sorry 
         return eheh();//new RandomDigger().chooseDiggingSite(distances); 
-        
-        
+        //###################################################
     }
     
     @Override
     public void dailyOutcome(int revenue, int[] distances, int[] diggers) { 
         
-        int potato = 0;
+        int potato = this.RandomMethod();
         int nDig = diggers[0];
         
         for(int i = 1; i<distances.length;i++){
@@ -46,6 +47,10 @@ public class GabrieleMazzolaDigger extends GoldDigger {
     private int dontKnowMethod() {
         int[] prova = null;
         return( (prova == null)? 1:1 );
+    }
+    
+    public static int RandomMethod(){
+        return ((1 == 2)? 5 : 1);
     }
     
 }
