@@ -30,7 +30,7 @@ public class MerlanoRiccardo extends GoldDigger {
 //                sito = 4;
 //                flag = 0;
 //            }
-//        }
+        }
             
    
         return sito;
@@ -49,4 +49,4 @@ public class MerlanoRiccardo extends GoldDigger {
     
     
 }
-}
+
