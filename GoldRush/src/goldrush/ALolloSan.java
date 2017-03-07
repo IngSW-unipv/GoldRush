@@ -15,7 +15,7 @@ public class ALolloSan extends GoldDigger{
 
     @Override
     public int chooseDiggingSite(int[] distances) {
-        return 1;
+        return 4;
     }
     
 
