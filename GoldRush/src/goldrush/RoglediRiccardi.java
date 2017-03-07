@@ -19,7 +19,7 @@ public class RoglediRiccardi extends GoldDigger{
     public int chooseDiggingSite(int[] distances) {
         int i;
         int x=0;
-        int ris=1;
+        int ris=0;
         for(i=0; i< distances.length; i++){
             if(x>distances[i]){
                 x=distances[i];
