@@ -27,7 +27,7 @@ public class ChiapponiElisa extends GoldDigger {
 
     @Override
     public int chooseDiggingSite(int[] distances) {
-        System.out.println("Sito scelto " + choosenSite);
+        //System.out.println("Sito scelto " + choosenSite);
         return choosenSite;
     }
 
@@ -43,7 +43,7 @@ public class ChiapponiElisa extends GoldDigger {
             if (diggers[i] != 0) {
                 guadTmp = guadTmp / diggers[i];
             }
-            System.out.println("GuadTmp " + guadTmp);
+            // System.out.println("GuadTmp " + guadTmp);
             if (guadTmp > guadagno) {
                 guadagno = guadTmp;
                 if (i == 0) {
