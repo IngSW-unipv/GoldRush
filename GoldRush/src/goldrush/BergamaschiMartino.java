@@ -28,7 +28,7 @@ public class BergamaschiMartino extends GoldDigger {
     @Override
     public int chooseDiggingSite(int[] distances) {
         // Each site has the same chance of being chosen independently on its distance.
-        return randomChoice();
+        return ;
     }
     
     private int randomChoice() {
