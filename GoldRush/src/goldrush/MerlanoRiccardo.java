@@ -49,3 +49,4 @@ public class MerlanoRiccardo extends GoldDigger {
     
     
 }
+}
