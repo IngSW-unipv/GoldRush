@@ -13,42 +13,31 @@ package goldrush;
  */
 public class MyDigger extends GoldDigger{
 
-    private int[] nMinatori;
+    private int index;
 
     public MyDigger() {
-        nMinatori = new int[6];
+        index = 0;
     }
     
     
     
     @Override
     public int chooseDiggingSite(int[] distances) {
-        int index = guadagno(distances);
-        nMinatori[index]++;
         return index;
     }
        
-    private int guadagno(int[] distMiniera){
-        double[] money;
-        money = new double[6];
-        
-        for (int i = 0; i<distMiniera.length;i++) {
-            money[i] = 5 * (12 - 2*(distMiniera[i]/60))/(nMinatori[i]+1);
-        }
-        return sceltaMiniera(money);
-        
-    }
-    
-    private int sceltaMiniera(double[] money){
-        double max = 0;
+    @Override
+    public void dailyOutcome(int revenue, int[] distances, int[] diggers) {
+        //super.dailyOutcome(revenue, distances, diggers);
+        int max = 0;
         int index = 0;
-        
-        for (int i = 0; i < money.length; i++) {
-            if(money[i] > max){
-                max = money[i];
+        for (int i = 0; i < diggers.length; i++) {
+            if(diggers[i]>max){
+                max = diggers[i];
                 index = i;
             }
         }
-        return index;
-    }  
+        
+        this.index = index;
+    }   
 }
