@@ -9,17 +9,18 @@ package goldrush;
 
 /**
  *
- * @author cl427490
+ * @author cl427113
  */
-public class ZobeerMohammad extends GoldDigger{
+public class myDigger extends GoldDigger{
 
     @Override
     public int chooseDiggingSite(int[] distances) {
-        //eeee volevi copiare 
-       //Town.bank.storeGold(this, 3000);
-        
-        return 1;
-        
+        int j=99;
+        for (int i=0; i<distances.length; i++){
+         if (distances[i]==200)
+               j=i;
+        }
+    return j;
     }
     
 }

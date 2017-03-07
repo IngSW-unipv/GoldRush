@@ -9,17 +9,18 @@ package goldrush;
 
 /**
  *
- * @author cl427490
+ * @author Merlano Riccardo 427720
  */
-public class ZobeerMohammad extends GoldDigger{
+public class MerlanoRiccardo extends GoldDigger {
+    
+    int sito=0, i=0;
 
     @Override
     public int chooseDiggingSite(int[] distances) {
-        //eeee volevi copiare 
-       //Town.bank.storeGold(this, 3000);
         
-        return 1;
         
+        
+        return 4;
     }
     
 }
