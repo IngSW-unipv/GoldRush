@@ -12,6 +12,9 @@ import static goldrush.GoldRush.DEFAULT_DAYS;
 /**
  *
  * @author Elisa Chiapponi(426982)
+ * STRATEGIA: scegliere il digging site che partendo dai dati del giorno prima risulta essere il migliore
+ * e supponendo che gli altri giocatori possano fare lo stesso ragionamento, scegliere in modo random se andare 
+ * sito precedente o quello successivo
  */
 public class ChiapponiElisa extends GoldDigger {
 
@@ -27,7 +30,7 @@ public class ChiapponiElisa extends GoldDigger {
 
     @Override
     public int chooseDiggingSite(int[] distances) {
-        //System.out.println("Sito scelto " + choosenSite);
+        
         return choosenSite;
     }
 
@@ -43,7 +46,7 @@ public class ChiapponiElisa extends GoldDigger {
             if (diggers[i] != 0) {
                 guadTmp = guadTmp / diggers[i];
             }
-            // System.out.println("GuadTmp " + guadTmp);
+            
             if (guadTmp > guadagno) {
                 guadagno = guadTmp;
                 if (i == 0) {
