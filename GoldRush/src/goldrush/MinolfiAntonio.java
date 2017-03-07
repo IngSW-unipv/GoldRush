@@ -18,7 +18,7 @@ public class MinolfiAntonio extends GoldDigger{
     int sito;
     
     MinolfiAntonio() {
-        sito = 2;
+        sito = 1;
     }
     
     @Override
@@ -26,8 +26,9 @@ public class MinolfiAntonio extends GoldDigger{
         int chosen = sito;
         sito++;
         if(sito>4){
-            sito = 2;
+            sito = 1;
         }
+        
         return chosen;
     }
     
