@@ -15,22 +15,8 @@ public class RiccardoGhioni extends GoldDigger{
     int days=0;
     private String NomeCognome;     //riccardo ghioni 418739
     
-    public int chooseDigginSite(int[] distanza){
-        int i=0;
-        int x=0;
-        int risultato=0;
-        for (i=0;i<distanza.length;i++){
-        if(x<distanza[i]){
-           x=distanza[i];
-           risultato=i;
-        }
-        
-        return risultato;
-        }
-        
-        return 0;
-     
-    }
+    
+    
     @Override
     public int chooseDiggingSite(int[] distanza) {
        
