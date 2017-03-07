@@ -9,22 +9,15 @@ package goldrush;
 
 /**
  *
- * @author ilcasa
+ * @author cl418205
  */
-public class CasadeiAlberto extends GoldDigger{ //casadei alberto, margherita ricotti 428115, 
-    private int scelta=1;
+public class RuginaCodrin extends GoldDigger{
+    private int days = 0;
     
+
     @Override
     public int chooseDiggingSite(int[] distances) {
-     
         return 1;
-
     }
     
-    @Override 
-    public void dailyOutcome(int revenue, int[] distances, int[] diggers) { 
-       
-     /////   
-        
-    }
 }
