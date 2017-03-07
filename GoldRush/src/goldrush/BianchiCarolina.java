@@ -33,15 +33,14 @@ public class BianchiCarolina extends GoldDigger {
 
     @Override
     public int chooseDiggingSite(int[] distances) {
-        return bestPastDay(distances);
+        return bestPastDay();
     }
 
-    private int bestPastDay(int[] distances) {
+    private int bestPastDay() {
 
-        int tmp = 0;
+        double a = 0.1;
         for (int i = 0; i < N_SITES; i++) {
-
-            sumRevenues[i] = (sumRevenues[i])*0.8  + revenues[i];
+            sumRevenues[i]= (1-a)*sumRevenues[i]+a*revenues[i];
             if (sumRevenues[i] > sumRevenues[index2fa]) {
                 index2fa = index1fa;
                 index1fa = i;
@@ -51,7 +50,6 @@ public class BianchiCarolina extends GoldDigger {
         if (day == 0 || day == 1) {
             return 3;
         }
-
         return index2fa;
 
     }
