@@ -18,12 +18,7 @@ public class Berto extends GoldDigger{
 
     @Override
     public int chooseDiggingSite(int[] distances) {
-        int scelta;
-        if(giorno_attuale<=4) scelta = 2;
-        else if (giorno_attuale%2 == 0) scelta = 1;
-        else scelta = 0;
-        giorno_attuale++;
-        return scelta;
+        return 4;
     }
     
 }
