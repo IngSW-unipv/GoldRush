@@ -9,18 +9,13 @@ package goldrush;
 
 /**
  *
- * 
  */
-public class myDigger extends GoldDigger{
+public class prova extends GoldDigger{ //
 
     @Override
     public int chooseDiggingSite(int[] distances) {
-        int j=99;
-        for (int i=0; i<distances.length; i++){
-         if (distances[i]==310)
-               j=i;
-        }
-    return j;
+      
+    return 1;
     }
     
 }
