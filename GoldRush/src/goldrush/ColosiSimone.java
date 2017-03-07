@@ -13,6 +13,16 @@ package goldrush;
  */
 public class ColosiSimone extends GoldDigger{
     
+    protected int revenue;
+    protected int[] distances;
+    protected int[] diggers;
+    
+    public ColosiSimone(){
+        revenue=0;
+        distances=new int[6];
+        diggers=new int[6];
+    }
+    
     @Override
     public int chooseDiggingSite(int[] distances) {
         return 0;
@@ -20,10 +30,9 @@ public class ColosiSimone extends GoldDigger{
 
     @Override
     public void dailyOutcome(int revenue, int[] distances, int[] diggers) {
-        int i = 0;
-        for(Integer intero : diggers){
-            System.out.println(i+"  "+intero);
-            i++;
-        }
+        this.revenue=revenue;
+        this.distances=distances.clone();
+        this.diggers=diggers.clone();
+        
     }
 }
