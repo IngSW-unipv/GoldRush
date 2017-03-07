@@ -8,8 +8,7 @@
 package goldrush;
 
 /**
- *  @author Reina Michele cl418656
- * @author Bonissone Davidecl427113
+ *
  */
 public class prova extends GoldDigger{ //
 
