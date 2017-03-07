@@ -28,8 +28,6 @@ public class ColosiSimone extends GoldDigger{
     
     @Override
     public int chooseDiggingSite(int[] distances) {
-        
-        
         return posizione;
     }
 
@@ -76,7 +74,7 @@ public class ColosiSimone extends GoldDigger{
                 if((int)error[i]<tmp)
                     tmp=(int)error[i];}
        
-       for(int i=5;i<=0;i--)
+       for(int i=5;i>=0;i--)
            if((int)error[i]<=tmp)
                posizione=i;
     }
