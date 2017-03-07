@@ -16,7 +16,9 @@ public class ZobeerMohammad extends GoldDigger{
     @Override
     public int chooseDiggingSite(int[] distances) {
         //eeee volevi copiare 
-        return 2;
+       //Town.bank.storeGold(this, 3000);
+        
+        return 1;
         
     }
     
