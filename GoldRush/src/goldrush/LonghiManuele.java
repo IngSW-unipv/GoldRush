@@ -7,15 +7,48 @@
  */
 package goldrush;
 
+import java.util.Arrays;
+
 /**
  *
  * @author cl427069
  */
 public class LonghiManuele extends GoldDigger{
     
+    private int[] gains;
+    
     @Override
     public int chooseDiggingSite(int[] dist) {
         
-        return 0;
+        if(gains != null) return getMaxIndex(gains);
+        else return 0;
+    }
+    
+    @Override
+    public void dailyOutcome(int revenue, int[] distances, int[] diggers) { 
+        
+        gains = new int[distances.length];
+        
+        for(int i = 0; i < distances.length; i++)
+            gains[i] = formula(distances[i], diggers[i]);
+    }
+    
+    private int formula(int dis, int nDig) {
+        
+        if(nDig != 0) return 5*(12-dis/30)/nDig;
+        else return 0;
+    }
+    
+    private int getMaxIndex(int[] arr) {
+        
+        int max = arr[0], index = 0;
+        
+        for(int i = 0; i < arr.length; i++) if(arr[i] > max) {
+            
+            max = arr[i];
+            index = i;
+        }
+        
+        return index;
     }
 }

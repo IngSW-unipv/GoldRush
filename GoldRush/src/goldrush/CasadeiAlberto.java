@@ -12,11 +12,12 @@ package goldrush;
  * @author ilcasa
  */
 public class CasadeiAlberto extends GoldDigger{ //casadei alberto, margherita ricotti 428115, 
-    private int scelta;
+    private int scelta=1;
     
     @Override
     public int chooseDiggingSite(int[] distances) {
-        return this.scelta;
+        return 1;
+
     }
     
     @Override 
@@ -26,7 +27,9 @@ public class CasadeiAlberto extends GoldDigger{ //casadei alberto, margherita ri
         int totale=0;
         int guadagni[] = new int[6];
         for(int i =0; i<distances.length; i++){
-            guadagni[i] = 5*((12-(2*distances[i])/60)/diggers[i]); 
+          //if(diggers[i]!=0) {
+          //}
+            guadagni[i] = 5*((12-(2*distances[i])/60)/2); 
             totale += guadagni[i];
         }
         int media = totale/distances.length;
