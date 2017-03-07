@@ -12,13 +12,25 @@ package goldrush;
  *
  * @author cl428444
  */
-public class Berto extends GoldDigger{
+public class BertoGitti extends GoldDigger{
     private int giorno_attuale = 0;
     
 
     @Override
     public int chooseDiggingSite(int[] distances) {
-        return 4;
+        int scelta;
+        if(giorno_attuale<=4) scelta = 2;
+        else if (giorno_attuale%2 == 0) scelta = 0;
+        else scelta = 1;
+        giorno_attuale++;
+        return scelta;
     }
+
+    @Override
+    public void dailyOutcome(int revenue, int[] distances, int[] diggers) {
+        
+    }
+    
+    
     
 }
