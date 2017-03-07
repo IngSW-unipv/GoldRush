@@ -15,6 +15,7 @@ import java.util.Random;
  * 
  * programmatore 1: Filippo Mandrini - matricola: 427012
  * programmatore 2: Samuele Colmi - matricola: 427886
+ * 
  */
 public class MandriniFilippo extends GoldDigger {
     
