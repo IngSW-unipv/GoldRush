@@ -15,16 +15,19 @@ import static goldrush.GoldRush.DEFAULT_DAYS;
  */
 public class ChiapponiElisa extends GoldDigger {
 
+    private final static int GRAMMI = 5;
+    private final static int ORE_LAVORO = 12;
+    private final static int MINUTI_ORA = 60;
     private int choosenSite;
-    
 
     public ChiapponiElisa() {
-        this.choosenSite = 0;
-        
+        //this.choosenSite = 0;
+
     }
 
     @Override
     public int chooseDiggingSite(int[] distances) {
+        System.out.println("Sito scelto " + choosenSite);
         return choosenSite;
     }
 
@@ -36,22 +39,22 @@ public class ChiapponiElisa extends GoldDigger {
         float guadTmp;
 
         for (int i = 0; i < diggers.length; i++) {
-            guadTmp = 5 * (12 - 2 * distances[i]);
+            guadTmp = GRAMMI * (ORE_LAVORO - 2 * distances[i] / MINUTI_ORA);
             if (diggers[i] != 0) {
                 guadTmp = guadTmp / diggers[i];
             }
-
+            System.out.println("GuadTmp " + guadTmp);
             if (guadTmp > guadagno) {
                 guadagno = guadTmp;
-                if (digSite == 0) {
-                    digSite = 0;
+                if (i == 0) {
+                    digSite = 3;
                 } else if ((int) Math.round(Math.random()) == 0) {
 
                     digSite = i + 1;
                 } else {
                     digSite = i - 1;
-
                 }
+
             }
         }
 
