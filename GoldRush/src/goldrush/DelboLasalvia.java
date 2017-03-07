@@ -15,7 +15,7 @@ public class DelboLasalvia extends GoldDigger {
 
     @Override
     public int chooseDiggingSite(int[] distances) {
-        return 4;
+        return 5;
     }
     
 }
