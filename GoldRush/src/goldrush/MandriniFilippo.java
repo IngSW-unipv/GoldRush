@@ -27,8 +27,15 @@ public class MandriniFilippo extends GoldDigger {
 
     @Override
     public int chooseDiggingSite(int[] distances) {
-        return randomGenerator.nextInt(distances.length);
-        
+        //return randomGenerator.nextInt(distances.length);
+        int a = 0;
+        if (a < 3) {
+            a++;
+        }else{
+            a = 0;
+            
+        }
+        return a;
         
     }  
 }
