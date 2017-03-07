@@ -77,7 +77,7 @@ public class ColosiSimone extends GoldDigger{
                     tmp=(int)error[i];}
        
        for(int i=5;i<=0;i--)
-           if((int)error[i]==tmp)
+           if((int)error[i]<=tmp)
                posizione=i;
     }
 }
