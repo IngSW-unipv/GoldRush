@@ -18,7 +18,7 @@ public class MerlanoRiccardo extends GoldDigger {
     @Override
     public int chooseDiggingSite(int[] distances) {
         
-        if(!(i>2))
+        if(!(i>1))
             sito=i;
         else
         {
