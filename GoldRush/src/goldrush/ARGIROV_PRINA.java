@@ -13,41 +13,14 @@ import java.util.Random;
 public class ARGIROV_PRINA extends GoldDigger {
     private int gruppo=2;
     private int guadagnoxsito[]= new int[10];
-    private int max=999, maxi=0, sec=0, seci=0;
-    private void aggiornagruppo(){
-        gruppo--;
-        if(gruppo==0)
-            gruppo=3;
-    }
+    private int max=999, maxi=0;
 
     @Override
     public int chooseDiggingSite(int[] distances) {
-//        int nscelto;
-//        if(gruppo==1)
-//            nscelto=0;
-//        else if(gruppo==2)
-//            nscelto=randInt(1,2);
-//        else
-//            nscelto=randInt(3, 5);
-//        aggiornagruppo();
+
         return maxi;
     }
-//    
-//    private int random(int min, int max){
-//        int reange=max-min;
-//        return arrotonda(Math.random()*reange)+min;
-//    }
-//    
-//    public int randInt(int min, int max) {
-//        Random rand = new Random();
-//        int randomNum = rand.nextInt((max - min) + 1) + min;
-//        return randomNum;
-//}
-//    
-//    private int arrotonda(double numero){
-//         return (int)Math.round(numero);
-//    }
-    
+
     @Override
     public void dailyOutcome(int revenue, int[] distances, int[] diggers) { 
         for(int i=0; i<distances.length ; i++){
@@ -63,10 +36,6 @@ public class ARGIROV_PRINA extends GoldDigger {
                 max=guadagnoxsito[i];
                 maxi=i;
             }
-        for(int i=0; i<distances.length ; i++)
-            if(sec<guadagnoxsito[i] && sec!=max){
-                sec=guadagnoxsito[i];
-                seci=i;
-            }
+       
     }
 }
