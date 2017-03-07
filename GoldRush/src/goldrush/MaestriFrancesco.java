@@ -37,7 +37,7 @@ public class MaestriFrancesco extends GoldDigger{
             
             if(dig[i] == 0){
                 
-                dgg = 1;
+                bufferTot[i] = 0;
                 
             }
             
@@ -45,9 +45,9 @@ public class MaestriFrancesco extends GoldDigger{
                 
                 dgg = dig[i];
                 
+                bufferTot[i] = 5*(12-(2*dist[i]/60))/dgg;
+                
             }
-            
-            bufferTot[i] = 5*(12-(2*dist[i]/60))/dgg;
             
         }
         
