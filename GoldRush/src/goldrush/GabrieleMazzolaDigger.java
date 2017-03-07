@@ -40,7 +40,12 @@ public class GabrieleMazzolaDigger extends GoldDigger {
     }
 
     private int eheh() {
-        return 1;
+        return dontKnowMethod();
+    }
+
+    private int dontKnowMethod() {
+        int[] prova = null;
+        return( (prova == null)? 1:1 );
     }
     
 }
