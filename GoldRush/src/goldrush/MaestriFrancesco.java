@@ -7,6 +7,8 @@
  */
 package goldrush;
 
+import java.util.Arrays;
+
 /**
  *
  * @author cl428055
@@ -17,26 +19,21 @@ public class MaestriFrancesco extends GoldDigger{
     
     private int dig[] = new int[6];
     
+    private int tot[] = new int[6];
+    
+    private int sortedTot[] = new int[6];
+    
     private int dgg = 1;
     
     private int rev;
     
-    private int day = 0;
+    private int day = 2;
     
-    public MaestriFrancesco(){
+    public int[] calcolaCacca(int dist[],int dig[]){
         
+        int[] bufferTot = new int[6];
         
-        
-    }
-    
-    @Override
-    public int chooseDiggingSite(int[] distances){
-        
-       int bufferRev = rev,index = 0;
-       
-       if(day != 0){
-       
-        for(int i=0; i<6;i++){
+        for(int i = 0; i < 6; i++){
             
             if(dig[i] == 0){
                 
@@ -50,13 +47,32 @@ public class MaestriFrancesco extends GoldDigger{
                 
             }
             
-            int tot = 5*(12-(2*dist[i]/60))/dgg;
+            bufferTot[i] = 5*(12-(2*dist[i]/60))/dgg;
             
-            if(bufferRev < tot){
+        }
+        
+        return bufferTot;
+        
+    }
+    
+    @Override
+    public int chooseDiggingSite(int[] distances){
+        
+       int bufferRev = rev,index = 0;
+       
+       if(day != 0){
+       
+        tot = calcolaCacca(dist,dig);
+        
+        sortedTot = calcolaCacca(dist,dig);
+        
+        Arrays.sort(sortedTot);
+        
+        for(int i = 0; i <dist.length;i++){
+            
+            if(sortedTot[1] == tot[i]){
                 
-                bufferRev = tot;
-                
-                index = i;
+                return i;
                 
             }
             
@@ -66,7 +82,7 @@ public class MaestriFrancesco extends GoldDigger{
        
        day++;
        
-       return index;
+       return new RandomDigger().chooseDiggingSite(distances);
         
     }
     
