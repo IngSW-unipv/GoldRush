@@ -15,7 +15,9 @@ import java.util.Random;
  */
 public class BianchiCarolina extends GoldDigger {
 
- int day;
+    private int day;
+    private int indexBestSite;
+    private int indexBestPastSite;
     private int[] revenues;
     private int[] sumRevenues;
     private static final int N_SITES = GoldRush.SITE_DISTANCES.length;
@@ -33,34 +35,31 @@ public class BianchiCarolina extends GoldDigger {
     }
 
     private int bestPastDay(int[] distances) {
-        
-        if (day == 1) {
-            return 2;
-        }
-        
-        int indexBestPastSite = 0;
+
+
+
+        int tmp = 0;
         for (int i = 0; i < N_SITES; i++) {
-            
-            sumRevenues[i]+= Math.pow(revenues[i], 0.8);
-            if (sumRevenues[i] > sumRevenues[indexBestPastSite]) {
-                //System.out.println("sumOutcome[i] "+i+" "+ sumRevenues[i]);
-                //System.out.println("precedente" +sumRevenues[indexBestPastSite]);
+
+            sumRevenues[i] += revenues[i];
+            if (sumRevenues[i] > sumRevenues[tmp]) {
+                indexBestSite = indexBestPastSite;
                 indexBestPastSite = i;
             }
         }
-        
-
-        
-        //System.out.println("SitoScelto: " + indexBestPastSite);
-        return indexBestPastSite;
+            
+        if (day == 0 || day == 1) {
+            return day;
+        }
+        return indexBestSite;
 
     }
 
     @Override
     public void dailyOutcome(int revenue, int[] distances, int[] diggers) {
-        
+
         for (int i = 0; i < distances.length; i++) {
-            this.revenues[i]= Town.computeSiteRevenue(distances[i], diggers[i]);
+            this.revenues[i] = Town.computeSiteRevenue(distances[i], diggers[i]);
         }
 
         day++;
