@@ -26,25 +26,34 @@ public class MaxFanto extends GoldDigger{
 
     @Override
     public void dailyOutcome(int revenue, int[] distances, int[] diggers) {
-        int massimo = diggers[0];
+        int[] revenues = new int[6];
+        for (int i = 0; i < revenues.length; i++) {
+            int num = 5 * (12*60 - distances[i] * 2);
+            int den = diggers[i] * 60;
+            int somma =  (num + (den / 2)) / den;
+        }
+        
+        int massimo = revenues[0];
         int indice = 0;
-        for(int i = 0; i < diggers.length; i++) {
-            if(diggers[i] > massimo ) {
-            massimo = diggers[i];
+        for(int i = 0; i < revenues.length; i++) {
+            if(revenues[i] > massimo ) {
+            massimo = revenues[i];
             indice = i;
             }
         }
-        diggers[indice] = 0;
+        revenues[indice] = 0;
         
-        for(int i = 0; i < diggers.length; i++) {
-            if(diggers[i] > massimo ) {
-            massimo = diggers[i];
+        for(int i = 0; i < revenues.length; i++) {
+            if(revenues[i] > massimo ) {
+            massimo = revenues[i];
             indice = i;
             }
         }
         valore = indice;
         
-    }  
+        
+        
+    }
     
     
 }
