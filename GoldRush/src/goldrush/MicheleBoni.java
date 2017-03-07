@@ -15,12 +15,8 @@ public class MicheleBoni extends GoldDigger{ //
 
     @Override
     public int chooseDiggingSite(int[] distances) {
-        int j=99;
-        for (int i=0; i<distances.length; i++){
-         if (distances[i]==200)
-               j=i;
-        }
-    return j;
+      
+    return 2;
     }
     
 }
