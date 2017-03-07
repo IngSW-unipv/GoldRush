@@ -18,4 +18,10 @@ public class AndreaRossi extends GoldDigger {
         return 0;
     }
     
+    @Override
+    public void dailyOutcome(int revenue, int[] distances, int[] diggers) { 
+    }
+    
+    
+    
 }
