@@ -29,11 +29,14 @@ public class MyDigger extends GoldDigger{
     @Override
     public void dailyOutcome(int revenue, int[] distances, int[] diggers) {
         //super.dailyOutcome(revenue, distances, diggers);
-        int max = 0;
+        double maxRapporto = 0;
         int index = 0;
+        double rapporto = 0;
+        
         for (int i = 0; i < diggers.length; i++) {
-            if(diggers[i]>max){
-                max = diggers[i];
+            rapporto = diggers[i]/distances[i];
+            if(rapporto > maxRapporto){
+                maxRapporto = rapporto;
                 index = i;
             }
         }
