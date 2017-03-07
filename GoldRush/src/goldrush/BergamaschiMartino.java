@@ -7,8 +7,6 @@
  */
 package goldrush;
 
-import java.util.Random;
-
 
 /**
  *
@@ -18,33 +16,31 @@ public class BergamaschiMartino extends GoldDigger {
     /* bergamaschi martino 419084
        barattini daniel 417911    
     */
-
-    Random randomGenerator;
     
     BergamaschiMartino() {
-        randomGenerator = new Random();
+
     }
     
     @Override
     public int chooseDiggingSite(int[] distances) {
         // Each site has the same chance of being chosen independently on its distance.
-        return randomChoice();
+        return 1;
     }
     
     private int randomChoice() {
         
         double value = Math.random();
-        if(value < 0.08)
-            return 0;
-        else if(value < 0.34)
-            return 1;
-        else if(value < 0.52)
-            return 2;
-        else if(value < 0.66)
-            return 3;
-        else if(value < 0.92)
-            return 4;
-        else
+        if(value < 0.05)
             return 5;
+        else if(value < 0.10)
+            return 4;
+        else if(value < 0.15)
+            return 3;
+        else if(value < 0.50)
+            return 2;
+        else if(value < 0.90)
+            return 1;
+        else
+            return 0;
     }
 }
