@@ -29,7 +29,7 @@ public class MerlanoRiccardo extends GoldDigger {
 //                sito = 4;
 //            }
 //        }
-        
+   
         return sito;
     }
     
