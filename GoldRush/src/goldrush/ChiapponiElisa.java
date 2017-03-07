@@ -49,7 +49,14 @@ public class ChiapponiElisa extends GoldDigger {
                 if(digSite==0){
                     digSite=1;
                 }else{
-                    digSite = i-1;
+                    
+                    switch((int)Math.round(Math.random())){
+                        case 1:
+                            digSite = i+1;
+                        case 0:
+                            digSite = i-1;
+                    }
+                    
                 }
                 
             }
