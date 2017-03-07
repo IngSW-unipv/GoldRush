@@ -17,6 +17,8 @@ public class MaestriFrancesco extends GoldDigger{
     
     private int dig[] = new int[6];
     
+    private int dgg = 1;
+    
     private int rev;
     
     private int day = 0;
@@ -36,7 +38,19 @@ public class MaestriFrancesco extends GoldDigger{
        
         for(int i=0; i<6;i++){
             
-            int tot = 5*(12-(2*dist[i]/60))/dig[i];
+            if(dig[i] == 0){
+                
+                dgg = 1;
+                
+            }
+            
+            else{
+                
+                dgg = dig[i];
+                
+            }
+            
+            int tot = 5*(12-(2*dist[i]/60))/dgg;
             
             if(bufferRev < tot){
                 
