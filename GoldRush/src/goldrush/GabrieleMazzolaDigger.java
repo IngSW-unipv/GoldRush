@@ -15,7 +15,8 @@ public class GabrieleMazzolaDigger extends GoldDigger {
 
     @Override
     public int chooseDiggingSite(int[] distances) {
-        //nemmeno qui puoi copiare, sorry
+        //nemmeno qui puoi copiare, sorry 
+        
         return 2; 
     }
     
