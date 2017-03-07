@@ -9,25 +9,28 @@ package goldrush;
 
 /**
  *
- * @author cl427358
+ * @author cl418849 Federico Draghi
+ * @author cl427358 Andrea Ferrari
  */
-public class DumbDigger extends GoldDigger{
+public class FerrariAndrea extends GoldDigger{
     int revenue;
     int[] distances; 
     int[] diggers;
     boolean primoGiro=true;
+    int lastSite;
 
     @Override
     public int chooseDiggingSite(int[] distances) {
         if(primoGiro==true){
             primoGiro=false;
+            lastSite=3;
             return 3;
         }
         
         //CI DA L'INDICE DELLA PIÙ REMUNERATIVA DELLA VOLTA PRECEDENTE
         int revenues[]=new int [distances.length];
         for (int i = 0; i < distances.length; i++) {
-            revenues[i]=5*((12-2*distances[i]/60)/(diggers[i]));
+            revenues[i]=Town.computeSiteRevenue(distances[i], diggers[i]);
         }
         int maxRevenue=0;
         int imaxRevenue=0;
@@ -38,24 +41,25 @@ public class DumbDigger extends GoldDigger{
             }
         }
         
-        //CI DA L'INDICE DELLA MENO POPOLATA DELLA VOLTA PRECEDENTE
-        /*int minDigger=99;
-        int iMinDigger=0;
-        for (int i = 0; i < distances.length; i++) {
-            if(minDigger>diggers[i]){
-                iMinDigger=i;
-                minDigger=diggers[i];
-            }
-        }*/
+        
+        //CONVIENE ANDARE NELLA PIÙ REMUNERATIVA DELLA VOLTA PRECEDENTE?
+        int maxRevenue_withMe=Town.computeSiteRevenue(distances[imaxRevenue], diggers[imaxRevenue]+1);
+        if(maxRevenue_withMe>revenue){
+            lastSite=imaxRevenue;
+            return imaxRevenue;
+        } else
+            return lastSite;
+        
+     
         
         
-        return imaxRevenue;
+    
     }
     
     @Override
     public void dailyOutcome(int revenue, int[] distances, int[] diggers) { 
         this.revenue=revenue;
-        this.distances=distances;
-        this.diggers=diggers;
+        this.distances=distances.clone();
+        this.diggers=diggers.clone();
     }
 }

@@ -36,6 +36,5 @@ public abstract class GoldDigger {
      */
     public void dailyOutcome(int revenue, int[] distances, int[] diggers) { 
         /* Do nothing by default. */
-        System.out.println();
     }
 }

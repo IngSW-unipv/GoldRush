@@ -9,33 +9,38 @@ package goldrush;
 
 /**
  *
- * @author cl427490
+ * @author Margherita
  */
-public class ZobeerMohammad extends GoldDigger{
-    int day;
-    int scelta = 0;
-    int revPass;
-     int[] punti = {0,0,0,0,0,0};
-        
-        
-    public ZobeerMohammad() {
-        day=0; 
-    }
-
+public class AnonymousDigger extends GoldDigger {
     
-   
+    
+    public int scelta;
+    
     @Override
     public int chooseDiggingSite(int[] distances) {
-        //in collaborazione
-       
+     
+        int j=0;
         
+        if(j==0) {
         
-        return new AndreaRossi().chooseDiggingSite(distances);
+            j++;
+            return 1;
+            
+        }
         
-    }
-    public void dailyOutcome(int revenue, int[] distances, int[] diggers) { 
-      
+        else {
+            
+            j=0;
+            return 6;
+        }   
+
     }
     
-   
+    @Override 
+    public void dailyOutcome(int revenue, int[] distances, int[] diggers) { 
+       
+     /////   
+        
+    }
+    
 }

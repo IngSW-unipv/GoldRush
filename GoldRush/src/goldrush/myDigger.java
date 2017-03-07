@@ -9,7 +9,7 @@ package goldrush;
 
 /**
  *
- * @author cl427113
+ * 
  */
 public class myDigger extends GoldDigger{
 
@@ -17,7 +17,7 @@ public class myDigger extends GoldDigger{
     public int chooseDiggingSite(int[] distances) {
         int j=99;
         for (int i=0; i<distances.length; i++){
-         if (distances[i]==200)
+         if (distances[i]==310)
                j=i;
         }
     return j;
