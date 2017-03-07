@@ -19,7 +19,7 @@ public class ZobeerMohammad extends GoldDigger{
         
         
     public ZobeerMohammad() {
-        day=0;
+        day=0; 
     }
 
     
