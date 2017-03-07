@@ -9,18 +9,13 @@ package goldrush;
 
 /**
  *
- * @author ilcasa
  */
-public class CasadeiAlberto extends GoldDigger{ //casadei alberto, 428115
-    private int scelta=1;
-    int day = 0;
-    
+public class prova extends GoldDigger{ //
+
     @Override
     public int chooseDiggingSite(int[] distances) {
-        return 2;
+      
+    return 1;
     }
     
-    
-        
-    }
-
+}
