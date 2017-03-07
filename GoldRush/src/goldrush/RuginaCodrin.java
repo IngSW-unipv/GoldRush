@@ -11,16 +11,13 @@ package goldrush;
  *
  * @author cl418205
  */
-public class RuginaCodrin extends GoldDigger {
+public class RuginaCodrin extends GoldDigger{
+    private int days = 0;
     
-    private int choosenSite;
-    
-    public RuginaCodrin(){
-        this.choosenSite = 3;
-    }
-     
+
     @Override
     public int chooseDiggingSite(int[] distances) {
-        return 3;
+        return 1;
     }
+    
 }
