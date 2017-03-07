@@ -19,7 +19,7 @@ public class RuginaCodrin extends GoldDigger{
         
     }
     @Override
-    public int chooseDiggingSite(int[]distance) {           //scelgo distana min
+    public int chooseDiggingSite(int[]distance) {          
         for (int i = 0; i <distance.length; i++) {
             if (distance[i] == choice) {
                 return i;
@@ -32,8 +32,8 @@ public class RuginaCodrin extends GoldDigger{
     public void dailyOutcome(int revenue, int[] distance, int[] diggers) {
         int max_revenue = 0;
         for (int i = 0; i < distance.length; i++ ) {
-           if (getRevenue(distance[i], diggers[i]) > max_revenue) {         //in base al guadagno maggiore
-               max_revenue = getRevenue(distance[i], diggers [i]);          //del gg prima
+           if (getRevenue(distance[i], diggers[i]) > max_revenue) {         
+               max_revenue = getRevenue(distance[i], diggers [i]);          
                choice = distance[i];
            } 
         }
