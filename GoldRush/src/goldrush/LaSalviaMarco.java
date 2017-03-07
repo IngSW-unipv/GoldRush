@@ -36,22 +36,25 @@ public class LaSalviaMarco extends GoldDigger {
        if(this.checkMedia())
            return this.scelta;
        else{
-           if(this.trovaSitoConMenoGente()>4){
-                if(this.sommaMieiGuadagni<=this.calcolaPartecipanti()*4){
-                    this.sceltaPrecedente = this.scelta;
-                    this.scelta =  2;
-                }else{
-                    this.sceltaPrecedente = this.scelta;
-                    this.scelta = 4;
-                }
-           }else
-               this.sceltaPrecedente = this.scelta;
-               this.scelta = this.trovaSitoConMenoGente();
-       }
-       if(this.sommaMieiGuadagni<=this.calcolaPartecipanti()*4 && this.day>7){
            this.sceltaPrecedente = this.scelta;
-           this.scelta =  1;
+           this.scelta =  this.trovaSitoConMenoGente();
        }
+//           if(this.trovaSitoConMenoGente()  > 4){
+//                if(this.sommaMieiGuadagni<=this.calcolaPartecipanti()*4.5){
+//                    this.sceltaPrecedente = this.scelta;
+//                    this.scelta =  2;
+//                }else{
+//                    this.sceltaPrecedente = this.scelta;
+//                    this.scelta = 4;
+//                }
+//           }else
+//               this.sceltaPrecedente = this.scelta;
+//               this.scelta = this.trovaSitoConMenoGente();
+//       }
+//       if(this.sommaMieiGuadagni<=this.calcolaPartecipanti()*4 && this.day>7){
+//           this.sceltaPrecedente = this.scelta;
+//           this.scelta =  2;
+//       }
        this.day++;
        return this.scelta;
     }
@@ -68,7 +71,7 @@ public class LaSalviaMarco extends GoldDigger {
     private int trovaSitoConMenoGente(){
        int migliore = this.calcolaPartecipanti();
        for(int i=0;i<this.diggersDayBefore.length;i++){
-           if(this.diggersDayBefore[i]<migliore)
+           if(this.diggersDayBefore[i] < migliore)
                migliore = this.diggersDayBefore[i];
        }
        return migliore;
