@@ -54,15 +54,15 @@ public class Euge extends GoldDigger {
     {
         
        
-        
-        while(revenue < 8)
+        /*
+        while(false)
         {
             
             
             chooseDiggingSite(distances);
             
         }
-        
+        */
     }
     
     
