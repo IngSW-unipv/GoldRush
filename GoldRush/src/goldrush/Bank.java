@@ -2,6 +2,7 @@ package goldrush;
 
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
@@ -34,7 +35,9 @@ class Bank {
      * @param amount the amount of gold to be stored
      */
     void storeGold(GoldDigger digger, int amount) {
-        int new_amount = amount + accounts .getOrDefault(digger, 0);
+        if (!accounts.containsKey(digger))
+            accounts.put(digger, 0);
+        int new_amount = amount + accounts.get(digger);
         accounts.put(digger, new_amount);
     }
     
@@ -45,7 +48,7 @@ class Bank {
      */
     List<Map.Entry<GoldDigger, Integer>> richestDiggers() {
         ArrayList<Map.Entry<GoldDigger, Integer>> ranking = new ArrayList<>(accounts.entrySet());
-        ranking.sort(new Comparator<Map.Entry<GoldDigger, Integer>>() {
+        Collections.sort(ranking, new Comparator<Map.Entry<GoldDigger, Integer>>() {
             @Override
             public int compare(Map.Entry<GoldDigger, Integer> o1, Map.Entry<GoldDigger, Integer> o2) {
                 return o2.getValue() - o1.getValue();
