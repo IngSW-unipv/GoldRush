@@ -20,16 +20,19 @@ public class RiccardoGhioni extends GoldDigger{
     @Override
     public int chooseDiggingSite(int[] distanza) {
        
-     int i=0;
-        int x=0;
-        int risultato=0;
-        for (i=0;i<distanza.length;i++){
-        if(x<distanza[i]){
-           x=distanza[i];
-           risultato=i;
-        }
+        int i=0;
+        int x=1000;
         
-        return risultato;
+        if (i<distanza.length){
+            
+        if(x>distanza[i]){
+            
+            x=distanza[i];
+           
+           i++;
+            }
+        
+        return i;
         }
         
         return 0;
