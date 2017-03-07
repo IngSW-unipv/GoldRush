@@ -12,10 +12,10 @@ package goldrush;
  * @author Delbo
  */
 public class DelboLasalvia extends GoldDigger {
-    private int guadagnoGiornoPrima;
-    private int scelta = 3;
-    private int[] diggersGiornoPrima;
-    private int[] guadagniSiti;
+//    private int guadagnoGiornoPrima;
+//    private int scelta = 3;
+//    private int[] diggersGiornoPrima;
+//    private int[] guadagniSiti;
     @Override
     public int chooseDiggingSite(int[] distances) {
 //        double guadagno = 0, media;
@@ -43,8 +43,8 @@ public class DelboLasalvia extends GoldDigger {
 
     @Override
     public void dailyOutcome(int revenue, int[] distances, int[] diggers) {
-        this.diggersGiornoPrima = diggers;
-        this.guadagnoGiornoPrima = revenue;
+//        this.diggersGiornoPrima = diggers;
+//        this.guadagnoGiornoPrima = revenue;
     }
     
 }
