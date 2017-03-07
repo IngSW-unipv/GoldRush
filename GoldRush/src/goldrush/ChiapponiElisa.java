@@ -21,7 +21,7 @@ public class ChiapponiElisa extends GoldDigger {
 
     public ChiapponiElisa() {
         this.choosenSite = 0;
-        this.bestSites=new int[DEFAULT_DAYS];
+        this.bestSites = new int[DEFAULT_DAYS];
     }
 
     @Override
@@ -32,12 +32,10 @@ public class ChiapponiElisa extends GoldDigger {
     @Override
     public void dailyOutcome(int revenue, int[] distances, int[] diggers) {
 
-        
         int digSite = 0;
         float guadagno = 0;
-        float guadTmp;       
-        
-        
+        float guadTmp;
+
         for (int i = 0; i < diggers.length; i++) {
             guadTmp = 5 * (12 - 2 * distances[i]);
             if (diggers[i] != 0) {
@@ -45,29 +43,23 @@ public class ChiapponiElisa extends GoldDigger {
             }
 
             if (guadTmp > guadagno) {
-                guadagno=guadTmp;
-                if(digSite==0){
-                    digSite=1;
-                }else{
-                    
-                    switch((int)Math.round(Math.random())){
-                        case 1:
-                            digSite = i+1;
-                        case 0:
-                            digSite = i-1;
-                    }
-                    
+                guadagno = guadTmp;
+                if (digSite == 0) {
+                    digSite = 1;
+                } else if ((int) Math.round(Math.random()) == 0) {
+
+                    digSite = i + 1;
+                } else {
+                    digSite = i - 1;
                 }
-                
+
             }
         }
-        
-        
+
         setChoosenSite(digSite);
-        
+
     }
-    
-    
+
     public void setChoosenSite(int site) {
         this.choosenSite = site;
     }
