@@ -29,6 +29,6 @@ public class RoglediRiccardi extends GoldDigger{
         return ris;
     }
     
-   
+    
     
 }
