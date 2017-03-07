@@ -14,19 +14,25 @@ package goldrush;
 public class RoglediRiccardi extends GoldDigger{
     private String namesurname;     //Rogledi 418743 Riccardi 418760
     
-
+   
     @Override
     public int chooseDiggingSite(int[] distances) {
         int i;
-        int x=0;
-        int ris=0;
-        for(i=0; i< distances.length; i++){
-            if(x>distances[i]){
-                x=distances[i];
-                ris=i;
+        for(i=0;i<distances.length;i++){
+            if(distances[i]>40){
+                return i;
             }
-        }
-        return ris;
+            
+        }         
+        
+        return i;
+    }
+    @Override
+    public void dailyOutcome(int revenue, int[] distances, int[] diggers) {
+        System.out.println("\ngrammi: "+ revenue);
+        int i;
+        for(i=0;i<distances.length;i++){System.out.println("distanze: " + distances[i]);}
+        for(i=0;i<diggers.length;i++){System.out.println("diggers: " + diggers[i]);}
     }
     
     
