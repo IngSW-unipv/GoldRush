@@ -22,7 +22,7 @@ public class CasadeiAlberto extends GoldDigger{ //casadei alberto, margherita ri
     
     @Override 
     public void dailyOutcome(int revenue, int[] distances, int[] diggers) { 
-        int pers;
+        
         int max=0;
         int m=0;
         int totale=0;
@@ -47,7 +47,9 @@ public class CasadeiAlberto extends GoldDigger{ //casadei alberto, margherita ri
             while(guadagni[j]!=max){
                 j++;
             }
-            this.scelta=j;
+            if((j!=1)&&(j!=6)){
+                this.scelta=j;
+            }
         }
     }
 }

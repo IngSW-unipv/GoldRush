@@ -47,5 +47,7 @@ public class GoldRush {
             n++;
             System.out.println(n + "\t" + e.getKey().getName() + "\t" + e.getValue());
         }
+        
+        
     }
 }
