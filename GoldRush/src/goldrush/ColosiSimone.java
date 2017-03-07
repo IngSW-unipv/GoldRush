@@ -67,9 +67,7 @@ public class ColosiSimone extends GoldDigger{
        double[] error=new double[6];       
        for(int i=0;i<g.length;i++){
            error[i]=abs(g[i]-media);
-            if(g[i]==0){
-                posizione=i;
-            }    
+           System.out.println(i+"  "+(int)error[i]);
        }
        
        int tmp=0;
@@ -81,7 +79,7 @@ public class ColosiSimone extends GoldDigger{
                     tmp=(int)error[i];
        
        for(int i=5;i<=0;i--)
-           if((int)error[i]==tmp)
+           if((int)error[i]<=tmp)
                posizione=i;
     }
 }
