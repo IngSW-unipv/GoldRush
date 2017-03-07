@@ -21,7 +21,7 @@ public class ChiapponiElisa extends GoldDigger {
     private int choosenSite;
 
     public ChiapponiElisa() {
-        //this.choosenSite = 0;
+        this.choosenSite = 0;
 
     }
 
