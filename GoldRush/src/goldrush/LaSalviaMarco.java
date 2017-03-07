@@ -48,7 +48,10 @@ public class LaSalviaMarco extends GoldDigger {
                this.sceltaPrecedente = this.scelta;
                this.scelta = this.trovaSitoConMenoGente();
        }
-
+       if(this.sommaMieiGuadagni<=this.calcolaPartecipanti()*4 && this.day>7){
+           this.sceltaPrecedente = this.scelta;
+           this.scelta =  1;
+       }
        this.day++;
        return this.scelta;
     }
