@@ -28,6 +28,7 @@ public class CasadeiAlberto extends GoldDigger{ //casadei alberto, margherita ri
         int guadagni2[] = new int[6];
         int guadagni1[] = new int[6];
        
+       
         
         
         
@@ -53,12 +54,22 @@ public class CasadeiAlberto extends GoldDigger{ //casadei alberto, margherita ri
         }
         
         if(day>1){
+            int max1 = -1000;
+           
             guadagni2 = guadagni1;
             for(int i=0; i<distances.length; i++){
                 if(diggers[i]!=0){
                     guadagni1[i] = 5*((12-(distances[i]*2/60))/diggers[i]);
                 }else{
                     guadagni1[i] = 5*(12-(distances[i]*2/60));
+                }
+            }
+            
+            for(int i = 0 ; i<distances.length; i++){
+                if(guadagni1[i]-guadagni2[i]>max1){
+                    max1 = guadagni1[i]-guadagni2[i];
+                    
+                    this.scelta = i+1;
                 }
             }
             
