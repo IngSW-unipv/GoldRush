@@ -4,6 +4,7 @@ Marco Prina(418308) e Argirov Lyubomir(420038)
  */
 package goldrush;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -12,8 +13,8 @@ import java.util.Random;
  */
 public class ARGIROV_PRINA extends GoldDigger {
     private int gruppo=2;
-    private int guadagnoxsito[]= new int[10];
-    private int max=999, maxi=0;
+    private ArrayList<Integer> guadagnoxsito = new ArrayList<>();
+    private int max=0, maxi=0;
 
     @Override
     public int chooseDiggingSite(int[] distances) {
@@ -22,18 +23,20 @@ public class ARGIROV_PRINA extends GoldDigger {
     }
 
     @Override
-    public void dailyOutcome(int revenue, int[] distances, int[] diggers) { 
+    public void dailyOutcome(int revenue, int[] distances, int[] diggers) {
+        int a=0;
         for(int i=0; i<distances.length ; i++){
             if(diggers[i]==0){
                 diggers[i]=1;
             }
-                guadagnoxsito[i]=5*((12-2*distances[i]/60)/diggers[i]);
+                a=(int)5*((12-2*distances[i]/60)/diggers[i]);
+                guadagnoxsito.add(a);
             
         }
         
         for(int i=0; i<distances.length ; i++)
-            if(max>guadagnoxsito[i]){
-                max=guadagnoxsito[i];
+            if(max>guadagnoxsito.get(i)){
+                max=guadagnoxsito.get(i);
                 maxi=i;
             }
        
