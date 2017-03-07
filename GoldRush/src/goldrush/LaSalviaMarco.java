@@ -80,6 +80,7 @@ public class LaSalviaMarco extends GoldDigger {
                 this.guadagniGiornoPrima[i] = (60-distanze[i]/6)/this.diggersDayBefore[i];
             media += this.guadagniGiornoPrima[i]/this.distanze.length;
         }
+        return media;
     }
     private int calcolaPartecipanti(){
         int p = 0;
